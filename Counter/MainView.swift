@@ -9,15 +9,19 @@ import SwiftUI
 
 struct MainView: View {
     
-    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, alignment: .center, spacing: 10, content: {
-                ForEach((0...10), id: \.self) {_ in
+        ScrollView(showsIndicators: false) {
+            Spacer(minLength: 30)
+            LazyVGrid(columns: columns, alignment: .center, spacing: 20, content: {
+                ForEach((0...20), id: \.self) {_ in
                     ItemView(title: "hello", value: 12)
+                        .lineSpacing(10)
                 }
             })
         }
+        .padding(20)
+        .ignoresSafeArea(.all, edges: .all)
     }
 }
 

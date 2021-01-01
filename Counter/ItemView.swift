@@ -12,7 +12,7 @@ struct ItemView: View {
     @State var title: String
     @State var value: Int
     
-    let size = UIScreen.main.bounds.width / 2
+    let size = UIScreen.main.bounds.width / 2 - 40
     
     var body: some View {
         VStack {
@@ -22,8 +22,9 @@ struct ItemView: View {
                 .padding()
                 
         }
+        .frame(width: size, height: size, alignment: .center)
         .background(Color.green)
-        .cornerRadius(10)
+        .cornerRadius(25)
         .onTapGesture {
             value += 1
         }
@@ -32,6 +33,6 @@ struct ItemView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView(title: "String", value: 12)
+        ItemView(title: "String", value: 12).previewDevice("iPhone 11")
     }
 }
