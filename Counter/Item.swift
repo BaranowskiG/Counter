@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Item {
+struct Item: Identifiable {
+    var id = UUID()
     var title: String
     var value: Int
 }

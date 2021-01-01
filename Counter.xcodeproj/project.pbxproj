@@ -15,6 +15,7 @@
 		97A8F970259A75F200D0ED45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A8F96F259A75F200D0ED45 /* Preview Assets.xcassets */; };
 		97A8F97B259A75F300D0ED45 /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A8F97A259A75F300D0ED45 /* CounterTests.swift */; };
 		97A8F986259A75F300D0ED45 /* CounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A8F985259A75F300D0ED45 /* CounterUITests.swift */; };
+		97AD3A18259FA23C008939FD /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD3A17259FA23C008939FD /* NewItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		97A8F981259A75F300D0ED45 /* CounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A8F985259A75F300D0ED45 /* CounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterUITests.swift; sourceTree = "<group>"; };
 		97A8F987259A75F300D0ED45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97AD3A17259FA23C008939FD /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				97A8F96E259A75F200D0ED45 /* Preview Content */,
 				972B1252259E3AD500AB29F8 /* Item.swift */,
 				972B1257259E3BBF00AB29F8 /* ItemView.swift */,
+				97AD3A17259FA23C008939FD /* NewItemView.swift */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				972B1253259E3AD500AB29F8 /* Item.swift in Sources */,
 				97A8F969259A75F100D0ED45 /* CounterApp.swift in Sources */,
 				972B1258259E3BBF00AB29F8 /* ItemView.swift in Sources */,
+				97AD3A18259FA23C008939FD /* NewItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

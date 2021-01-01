@@ -31,6 +31,9 @@ struct ItemView: View {
         .onTapGesture {
             value += 1
         }
+        .onLongPressGesture {
+            print("long press")
+        }
     }
 }
 
