@@ -31,16 +31,13 @@ struct ItemView: View {
         .onTapGesture {
             value += 1
         }
-        .onLongPressGesture {
-            print("long press")
-        }
     }
 }
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ItemView(title: "String", value: 11).previewDevice("iPhone 11")
+            ItemView(title: "String", value: 11).preferredColorScheme(.dark).previewDevice("iPhone 11")
         }
     }
 }
