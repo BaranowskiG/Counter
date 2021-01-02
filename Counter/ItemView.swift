@@ -26,7 +26,7 @@ struct ItemView: View {
         }
         .frame(width: size, height: size, alignment: .center)
         .overlay(
-            RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 6).brightness(0.1)
+            RoundedRectangle(cornerRadius: 20).stroke(Color("main"), lineWidth: 6).brightness(0.1)
         )
         .onTapGesture {
             value += 1
