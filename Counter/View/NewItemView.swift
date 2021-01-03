@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NewItemView: View {
     
@@ -30,6 +31,19 @@ struct NewItemView: View {
     
     func addNewItem() {
         items.append(Item(title: newItemName, value: 0))
+        
+        let newItem = Item1()
+        newItem.title = newItemName
+        
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(newItem)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         newItemName = ""
         withAnimation {
             viewState = false
