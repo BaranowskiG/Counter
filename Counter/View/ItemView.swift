@@ -19,17 +19,20 @@ struct ItemView: View {
             Text(title)
                 .padding()
                 .lineLimit(3)
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                .font(Assets.setBasicFont(size: 20))
             Text("\(value)")
                 .padding()
-                .font(.system(size: 35, weight: .semibold, design: .rounded))
+                .font(Assets.setBasicFont(size: 35))
         }
         .frame(width: size, height: size, alignment: .center)
         .overlay(
-            RoundedRectangle(cornerRadius: 20).stroke(Color("main"), lineWidth: 6).brightness(0.1)
+            RoundedRectangle(cornerRadius: 20).stroke(Assets.mainColor, lineWidth: 6).brightness(0.1)
         )
         .onTapGesture {
             value += 1
+        }
+        .onLongPressGesture {
+            value = 0
         }
     }
 }

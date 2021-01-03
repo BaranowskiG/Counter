@@ -10,7 +10,6 @@ import SwiftUI
 struct DarkenedViewBackground: View {
     
     @Binding var visible: Bool
-    var mainColor: Color
     
     var body: some View {
         Color.black.opacity(visible ? 0.9 : 0.0)
@@ -19,6 +18,6 @@ struct DarkenedViewBackground: View {
                     visible = false
                 }
             }
-            .accentColor(mainColor)
+            .accentColor(Assets.mainColor)
     }
 }

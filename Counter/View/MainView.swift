@@ -8,10 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    
-    let mainColor = Color("main")
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    
     @State var isNewItemViewOpen = false
     @State var items = [
         Item(title: "hello", value: 12),
@@ -24,12 +20,18 @@ struct MainView: View {
             NavigationView {
                 ScrollView(showsIndicators: false) {
                     Spacer()
-                    LazyVGrid(columns: columns, alignment: .center, spacing: 20, content: {
-                        ForEach(items) {item in
-                            ItemView(title: item.title, value: item.value)
-                                .lineSpacing(10)
-                        }
-                    })
+                    LazyVGrid(
+                        columns: Array(
+                            repeating: .init(.flexible()),
+                            count: 2),
+                        alignment: .center,
+                        spacing: 20,
+                        content: {
+                            ForEach(items) {item in
+                                ItemView(title: item.title, value: item.value)
+                                    .lineSpacing(10)
+                            }
+                        })
                 }
                 .padding(.horizontal, 20)
                 .navigationBarTitle(
@@ -38,16 +40,15 @@ struct MainView: View {
                 .navigationBarItems(
                     trailing:
                         Image(systemName: "plus")
-                        .foregroundColor(mainColor)
+                        .foregroundColor(Assets.mainColor)
                         .onTapGesture {
                             withAnimation {
                                 isNewItemViewOpen.toggle()
                             }
                         }
-                    
                 )
             }
-            DarkenedViewBackground(visible: $isNewItemViewOpen, mainColor: mainColor)
+            DarkenedViewBackground(visible: $isNewItemViewOpen)
             if isNewItemViewOpen {
                 NewItemView(items: $items, viewState: $isNewItemViewOpen)
             }
