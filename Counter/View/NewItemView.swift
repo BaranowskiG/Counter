@@ -11,7 +11,8 @@ import RealmSwift
 struct NewItemView: View {
     
     @State var newItemName: String = ""
-    @Binding var items: [Item]
+//    @Binding var itemViewModel: ItemViewModel
+//    @Binding var items: [Item]
     @Binding var viewState: Bool
     
     var body: some View {
@@ -30,19 +31,9 @@ struct NewItemView: View {
     }
     
     func addNewItem() {
-        items.append(Item(title: newItemName, value: 0))
+//        items.append(Item(title: newItemName, value: 0))
         
-        let newItem = Item1()
-        newItem.title = newItemName
-        
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(newItem)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
+//        itemViewModel.createItem(with: newItemName)
         
         newItemName = ""
         withAnimation {

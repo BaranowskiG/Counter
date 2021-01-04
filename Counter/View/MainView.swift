@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MainView: View {
-    @State var isNewItemViewOpen = false
-    @State var items = [
-        Item(title: "hello", value: 12),
-        Item(title: "Nice", value: 124),
-        Item(title: "Good", value: 53)
-    ]
     
+    @ObservedObject var itemViewModel = ItemViewModel()
+    
+    @State var isNewItemViewOpen = false
+//    @State var items = [Item]()
+        
     var body: some View {
         ZStack {
             NavigationView {
@@ -27,10 +27,14 @@ struct MainView: View {
                         alignment: .center,
                         spacing: 20,
                         content: {
-                            ForEach(items) {item in
-                                ItemView(title: item.title, value: item.value)
-                                    .lineSpacing(10)
+                            
+                            if itemViewModel.itemList != nil {
+                                ForEach( 0..<itemViewModel.itemList!.count ) {index in
+                                    ItemView(title: itemViewModel.itemList![index].title, value: itemViewModel.itemList![index].value)
+                                        .lineSpacing(10)
+                                }
                             }
+                            
                         })
                 }
                 .padding(.horizontal, 20)
@@ -50,9 +54,11 @@ struct MainView: View {
             }
             DarkenedViewBackground(visible: $isNewItemViewOpen)
             if isNewItemViewOpen {
-                NewItemView(items: $items, viewState: $isNewItemViewOpen)
+                NewItemView(viewState: $isNewItemViewOpen)
             }
             
+        }.onAppear {
+            itemViewModel.getItem()
         }
     }
     
@@ -67,5 +73,3 @@ struct ContentView_Previews: PreviewProvider {
             .previewDevice("iPhone 12 Pro Max")
     }
 }
-
-

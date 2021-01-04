@@ -5,7 +5,6 @@
 //  Created by Grzegorz Baranowski on 03/01/2021.
 //
 
-import Foundation
 import SwiftUI
 
 struct Assets {
