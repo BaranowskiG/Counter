@@ -11,6 +11,7 @@ import RealmSwift
 struct NewItemView: View {
     
     @State var newItemName: String = ""
+    var itemViewModel: ItemViewModel
 //    @Binding var itemViewModel: ItemViewModel
 //    @Binding var items: [Item]
     @Binding var viewState: Bool
@@ -30,10 +31,8 @@ struct NewItemView: View {
         }
     }
     
-    func addNewItem() {
-//        items.append(Item(title: newItemName, value: 0))
-        
-//        itemViewModel.createItem(with: newItemName)
+    func addNewItem() {        
+        itemViewModel.createItem(with: newItemName)
         
         newItemName = ""
         withAnimation {

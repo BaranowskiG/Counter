@@ -13,8 +13,7 @@ struct MainView: View {
     @ObservedObject var itemViewModel = ItemViewModel()
     
     @State var isNewItemViewOpen = false
-//    @State var items = [Item]()
-        
+    
     var body: some View {
         ZStack {
             NavigationView {
@@ -29,9 +28,14 @@ struct MainView: View {
                         content: {
                             
                             if itemViewModel.itemList != nil {
-                                ForEach( 0..<itemViewModel.itemList!.count ) {index in
-                                    ItemView(title: itemViewModel.itemList![index].title, value: itemViewModel.itemList![index].value)
-                                        .lineSpacing(10)
+                                ForEach( 0..<itemViewModel.itemList!.count, id: \.self ) {index in
+                                    ItemView(
+                                        title: itemViewModel.itemList![index].title,
+                                        value: itemViewModel.itemList![index].value,
+                                        id: itemViewModel.itemList![index].id,
+                                        itemViewModel: itemViewModel
+                                    )
+                                    .lineSpacing(10)
                                 }
                             }
                             
@@ -54,7 +58,7 @@ struct MainView: View {
             }
             DarkenedViewBackground(visible: $isNewItemViewOpen)
             if isNewItemViewOpen {
-                NewItemView(viewState: $isNewItemViewOpen)
+                NewItemView(itemViewModel: itemViewModel, viewState: $isNewItemViewOpen)
             }
             
         }.onAppear {

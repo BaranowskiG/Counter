@@ -31,23 +31,33 @@ class ItemViewModel: ObservableObject {
             let realm = try Realm()
             try realm.write {
               itemList = realm.objects(Item.self)
-                print("GET: ",itemList![0].title ?? "")
             }
         } catch {
             print(error.localizedDescription)
         }
     }
     
-//    func deleteItem(id: String) {
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                realm.delete()
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
+    func deleteItem(title: String) {
+        
+        if itemList == nil { return }
+        
+        for item in itemList! {
+            if item.title == title {
+                print("Item title: ", item.title)
+                print("to delete title: ", title)
+                do {
+                    let realm = try Realm()
+                    try realm.write({
+                        realm.delete(item)
+                    })
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+
+        getItem()
+    }
 //
 //    func updateItem(id: String) {
 //        do {

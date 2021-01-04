@@ -11,6 +11,9 @@ struct ItemView: View {
     
     @State var title: String
     @State var value: Int
+    @State var id: String
+    
+    var itemViewModel: ItemViewModel
     
     let size = UIScreen.main.bounds.width / 2 - 40
     
@@ -26,13 +29,16 @@ struct ItemView: View {
         }
         .frame(width: size, height: size, alignment: .center)
         .overlay(
-            RoundedRectangle(cornerRadius: 20).stroke(Assets.mainColor, lineWidth: 6).brightness(0.1)
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Assets.mainColor, lineWidth: 6)
+                .brightness(0.1)
         )
         .onTapGesture {
             value += 1
         }
         .onLongPressGesture {
             value = 0
+            itemViewModel.deleteItem(title: title)
         }
     }
 }
@@ -40,7 +46,14 @@ struct ItemView: View {
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ItemView(title: "String", value: 11).preferredColorScheme(.dark).previewDevice("iPhone 11")
+            ItemView(
+                title: "String",
+                value: 11,
+                id: "bobo",
+                itemViewModel: ItemViewModel()
+            )
+            .preferredColorScheme(.dark)
+            .previewDevice("iPhone 11")
         }
     }
 }
