@@ -21,7 +21,7 @@ struct ItemView: View {
         VStack {
             Text(title)
                 .padding()
-                .lineLimit(3)
+                .lineLimit(nil)
                 .font(Assets.setBasicFont(size: 20))
             Text("\(value)")
                 .padding()
@@ -35,10 +35,13 @@ struct ItemView: View {
         )
         .onTapGesture {
             value += 1
+            itemViewModel.updateItem(title: title)
         }
         .onLongPressGesture {
-            value = 0
-            itemViewModel.deleteItem(title: title)
+            withAnimation {
+                itemViewModel.deleteItem(title: title)
+                itemViewModel.getItem()
+            }
         }
     }
 }

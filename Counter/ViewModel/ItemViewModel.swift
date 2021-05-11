@@ -11,65 +11,36 @@ import RealmSwift
 class ItemViewModel: ObservableObject {
     
     @Published var itemList : Results<Item>?
+    let realm = try! Realm()
     
     func createItem(with name: String) {
         let item = Item()
         item.title = name
-        
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(item)
-            }
-        } catch {
-            print(error.localizedDescription)
+        try! realm.write {
+            realm.add(item)
         }
     }
     
     func getItem() {
-        do {
-            let realm = try Realm()
-            try realm.write {
-              itemList = realm.objects(Item.self)
-            }
-        } catch {
-            print(error.localizedDescription)
+        try! realm.write {
+            itemList = realm.objects(Item.self)
         }
     }
     
     func deleteItem(title: String) {
+        let item = realm.objects(Item.self).filter("title == \"\(title)\"")
+        try! realm.write({
+            realm.delete(item)
+        })
+        print(item)
         
-        if itemList == nil { return }
-        
-        for item in itemList! {
-            if item.title == title {
-                print("Item title: ", item.title)
-                print("to delete title: ", title)
-                do {
-                    let realm = try Realm()
-                    try realm.write({
-                        realm.delete(item)
-                    })
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-
-        getItem()
     }
-//
-//    func updateItem(id: String) {
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                realm.add(item)
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
-//
     
+    func updateItem(title: String) {
+        let item = realm.objects(Item.self).filter("title == \"\(title)\"")
+        try! realm.write({
+            item.first?.value += 1
+        })
+    }
     
 }

@@ -40,6 +40,9 @@ struct MainView: View {
                             }
                             
                         })
+                        .onAppear {
+                            itemViewModel.getItem()
+                        }
                 }
                 .padding(.horizontal, 20)
                 .navigationBarTitle(
@@ -61,8 +64,6 @@ struct MainView: View {
                 NewItemView(itemViewModel: itemViewModel, viewState: $isNewItemViewOpen)
             }
             
-        }.onAppear {
-            itemViewModel.getItem()
         }
     }
     

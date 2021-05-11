@@ -8,7 +8,7 @@
 import RealmSwift
 
 class Item: Object, Identifiable {
-    @objc dynamic let id = UUID().uuidString
+    @objc dynamic let id: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var value: Int = 0
 }

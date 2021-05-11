@@ -10,10 +10,8 @@ import RealmSwift
 
 struct NewItemView: View {
     
-    @State var newItemName: String = ""
     var itemViewModel: ItemViewModel
-//    @Binding var itemViewModel: ItemViewModel
-//    @Binding var items: [Item]
+    @State var newItemName: String = ""
     @Binding var viewState: Bool
     
     var body: some View {

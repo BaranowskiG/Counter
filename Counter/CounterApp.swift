@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct CounterApp: App {
+    
+    @State var isNewUser = true //UserDefaults.standard.bool(forKey: "isNew")
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            if isNewUser {
+                IntroductionView(isNewUser: $isNewUser)
+            } else {
+                MainView()
+            }
         }
     }
 }

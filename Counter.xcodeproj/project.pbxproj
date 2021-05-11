@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		02BC27326BD08BBC1A290F38 /* Pods_Counter_CounterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC31C19CF81A15532DEDD13 /* Pods_Counter_CounterUITests.framework */; };
 		3C53DBB698D8FAB664807BBE /* Pods_CounterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587454F8D03204502489AE3A /* Pods_CounterTests.framework */; };
+		971BBD2225A8AC93009B7D12 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BBD2125A8AC93009B7D12 /* IntroductionView.swift */; };
+		971BBD2A25A8AF12009B7D12 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BBD2925A8AF12009B7D12 /* InformationView.swift */; };
+		971BBD2F25A8E6D9009B7D12 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BBD2E25A8E6D9009B7D12 /* Tip.swift */; };
 		972683C625A1010200555532 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972683C525A1010200555532 /* NewItemView.swift */; };
 		972683D125A1022000555532 /* DarkenedViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972683D025A1022000555532 /* DarkenedViewBackground.swift */; };
 		972B1253259E3AD500AB29F8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972B1252259E3AD500AB29F8 /* Item.swift */; };
@@ -48,6 +51,9 @@
 		33573905751387A24B516113 /* Pods-CounterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CounterTests.release.xcconfig"; path = "Target Support Files/Pods-CounterTests/Pods-CounterTests.release.xcconfig"; sourceTree = "<group>"; };
 		587454F8D03204502489AE3A /* Pods_CounterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CounterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDFDE2DAE8282CF60F81E7A /* Pods-Counter-CounterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-CounterUITests.debug.xcconfig"; path = "Target Support Files/Pods-Counter-CounterUITests/Pods-Counter-CounterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		971BBD2125A8AC93009B7D12 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		971BBD2925A8AF12009B7D12 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		971BBD2E25A8E6D9009B7D12 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		972683C525A1010200555532 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		972683D025A1022000555532 /* DarkenedViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkenedViewBackground.swift; sourceTree = "<group>"; };
 		972B1252259E3AD500AB29F8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -112,9 +118,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		971BBD2025A8AC73009B7D12 /* IntroductionView */ = {
+			isa = PBXGroup;
+			children = (
+				971BBD2125A8AC93009B7D12 /* IntroductionView.swift */,
+				971BBD2925A8AF12009B7D12 /* InformationView.swift */,
+			);
+			path = IntroductionView;
+			sourceTree = "<group>";
+		};
 		972683C325A100C600555532 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				971BBD2025A8AC73009B7D12 /* IntroductionView */,
 				97A8F96A259A75F100D0ED45 /* MainView.swift */,
 				972B1257259E3BBF00AB29F8 /* ItemView.swift */,
 				972683C525A1010200555532 /* NewItemView.swift */,
@@ -128,6 +144,7 @@
 			children = (
 				972B1252259E3AD500AB29F8 /* Item.swift */,
 				9754A4BA25A2292A00BE4D9F /* Assets.swift */,
+				971BBD2E25A8E6D9009B7D12 /* Tip.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -450,12 +467,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				972683C625A1010200555532 /* NewItemView.swift in Sources */,
+				971BBD2F25A8E6D9009B7D12 /* Tip.swift in Sources */,
 				973433A925A2470D001696C0 /* ItemViewModel.swift in Sources */,
 				9754A4BB25A2292A00BE4D9F /* Assets.swift in Sources */,
 				97A8F96B259A75F100D0ED45 /* MainView.swift in Sources */,
 				972683D125A1022000555532 /* DarkenedViewBackground.swift in Sources */,
+				971BBD2A25A8AF12009B7D12 /* InformationView.swift in Sources */,
 				972B1253259E3AD500AB29F8 /* Item.swift in Sources */,
 				97A8F969259A75F100D0ED45 /* CounterApp.swift in Sources */,
+				971BBD2225A8AC93009B7D12 /* IntroductionView.swift in Sources */,
 				972B1258259E3BBF00AB29F8 /* ItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

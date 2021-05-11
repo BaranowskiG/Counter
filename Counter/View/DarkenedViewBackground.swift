@@ -19,5 +19,6 @@ struct DarkenedViewBackground: View {
                 }
             }
             .accentColor(Assets.mainColor)
+            .ignoresSafeArea()
     }
 }
